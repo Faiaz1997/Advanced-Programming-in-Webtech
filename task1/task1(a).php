@@ -23,15 +23,19 @@ class student {
   function showallcourses(){
     echo"Name: $this->name <br>";
     echo"Id: $this->id <br>";
+    echo"Course name: ";
     foreach($this->courses as $c){
-        echo "$c <br>";
+        echo "<br> $c";
     }
   }
 }
-$student1 = new student("John","01","19-10-99"); 
+$student1 = new student(); 
+$student1->name="John";
+$student1->id="001";
+$student1->dob="19-10-99";
 echo $student1->show_info(). "<br>";
 $student1->AddCourse("ATP3");
-echo $student1->showallcourses();
+echo $student1->showallcourses(). "<br>";
 $student1->AddCourse("HCI");
 echo $student1->showallcourses();
 
