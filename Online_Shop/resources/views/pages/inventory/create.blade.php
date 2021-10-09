@@ -20,15 +20,21 @@
         <div class="col-md-4 form-group">
             <span>Price</span>
             <input type="float" name="price" value="{{old('price')}}" class="form-control">
+            @error('price')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
         <div class="col-md-4 form-group">
             <span>Quantity</span>
             <input type="integer" name="quantity" value="{{old('quantity')}}" class="form-control">
+            @error('quantity')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
         <div class="col-md-4 form-group">
             <span>Description</span>
             <input type="text" name="description" value="{{old('description')}}" class="form-control">
-            @error('phone')
+            @error('description')
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>

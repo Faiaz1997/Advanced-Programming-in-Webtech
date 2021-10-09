@@ -15,15 +15,17 @@ class InventoryController extends Controller
             $request,
             [   
                 'id'=>'required',
-                'name'=>'required|max:20|',
+                'name'=>'required',
                 'price'=>'required',
                 'quantity'=>'required',
                 'description'=>'required'
             ],
             [
-                'name.required'=>'Please put your name',
-                'name.min'=>'Name must be greater than 2 charcters'
-                
+                'id.required'=>'Please put product id',
+                'name.required'=>'Please put product name',
+                'price.required'=>'Please put a price',
+                'quantity.required'=>'Please put the quantity',
+                'description.required'=>'Please put product description'
             ]
         );
 
