@@ -1,16 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.adminapp')
 @section('content')
 <form action="{{route('inventory.edit')}}" class="col-md-6" method="post">
         <!-- Cross Site Request Forgery-->
         {{csrf_field()}}
-        <input type="hidden" name="id" value="{{$inventory->id}}">
-        <div class="col-md-4 form-group">
-            <span>Id</span>
-            <input type="text" name="id" value="{{$inventory->id}}"class="form-control">
-            @error('id')
-                <span class="text-danger">{{$message}}</span>
-            @enderror
-        </div>
+        <input type="hidden" name="id" value="{{$inventory->product_id}}">
         <div class="col-md-4 form-group">
             <span>Name</span>
             <input type="text" name="name" value="{{$inventory->name}}" class="form-control">
@@ -33,6 +26,8 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
-        <input type="submit" class="btn btn-success" value="Edit" >
+        <input type="submit" class="btn btn-success" value="Update" >
+        <a href="{{route('inventory.list')}}" class="btn btn-secondary" >Back</a>
     </form>
+
 @endsection

@@ -5,7 +5,7 @@
 
     </head>
     <body>
-        @include('inc.topnav')
+        @include('inc.customertopnav')
         <div>
             @yield('content')
         </div>

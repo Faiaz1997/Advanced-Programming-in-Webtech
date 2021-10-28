@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Inventory;
+use App\Models\login_info;
+use App\Models\inventory;
+use App\Models\orders;
+use App\Models\orderdetails;
+use App\Models\product;
 
 class InventoryController extends Controller
 {
@@ -14,14 +18,12 @@ class InventoryController extends Controller
         $this->validate(
             $request,
             [   
-                'id'=>'required',
                 'name'=>'required',
                 'price'=>'required',
                 'quantity'=>'required',
                 'description'=>'required'
             ],
             [
-                'id.required'=>'Please put product id',
                 'name.required'=>'Please put product name',
                 'price.required'=>'Please put a price',
                 'quantity.required'=>'Please put the quantity',
@@ -29,8 +31,7 @@ class InventoryController extends Controller
             ]
         );
 
-        $var = new Inventory();
-        $var->id = $request->id;
+        $var = new inventory();
         $var->name= $request->name;
         $var->price = $request->price;
         $var->quantity=$request->quantity;
@@ -39,18 +40,16 @@ class InventoryController extends Controller
         return redirect()->route('inventory.list');     
     }
     public function list(){
-        $inventory = Inventory::all();
+        $inventory = inventory::all();
         return view('pages.inventory.list')->with('inventory',$inventory);
     }
     public function edit(Request $request){
         //
-        $id = $request->id;
-        $inventory = Inventory::where('id',$id)->first();
+        $inventory = inventory::where('product_id',$request->id)->first();
         return view('pages.inventory.edit')->with('inventory',$inventory);
     }
     public function editSubmit(Request $request){
-        $var = Inventory::where('id',$request->id)->first();
-        $var->id = $request->id;
+        $var = inventory::where('product_id', $request->id)->first();
         $var->name= $request->name;
         $var->price = $request->price;
         $var->quantity=$request->quantity;
@@ -60,7 +59,7 @@ class InventoryController extends Controller
 
     }
     function deletesubmit(Request $request){
-        $inventory = Inventory::where('id' , $request->id)->first();
+        $inventory = inventory::where('product_id' , $request->id)->first();
         $inventory->delete();
         return redirect()->route('inventory.list');
         }

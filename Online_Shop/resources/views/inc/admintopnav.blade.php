@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{route('home')}}"><span>LOGO</span></a>
+  <a class="navbar-brand" href="{{route('admin.dashboard')}}"><span>LOGO</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,8 +9,8 @@
       <!-- <li class="nav-item">
         <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only"></span></a>
       </li> -->
-      </li>
-        <a class="nav-link" href="{{route('login')}}">Login<span class="sr-only"></span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.logout')}}">Log Out<span class="sr-only"></span></a>
       </li>
     </ul>
   </div>

@@ -1,4 +1,4 @@
-@extends('layouts.adminapp')
+@extends('layouts.customerapp')
 @section('content')
     <table class="table table-borded">
         <tr>
@@ -14,10 +14,10 @@
                 <td>{{$inventory->price}}</td>
                 <td>{{$inventory->quantity}}</td>
                 <td>{{$inventory->description}}</td>
-                <td><a href="/inventory/edit/{{$inventory->product_id}}}"><button class="btn btn-info" style="text-decoration: none">Edit</button></a></td>
-                <td><a href="/inventory/list/{{$inventory->product_id}}"><button type="button" class="btn btn-danger" style="text-decoration: none">Delete</button></a></td>
+                <td> <a href="{{route('products.addtocart',['id'=>$inventory->product_id])}}" class="btn btn-primary" style="color:white">Add to Cart</a></td>
             </tr>
         @endforeach
     </table>
-    <a href="{{route('admin.dashboard')}}" class="btn btn-secondary" >Back</a>
+    <a href="{{route('products.viewcart')}}" class="btn btn-primary" style="color:white">View Cart</a>
+    <a href="{{route('customer.dashboard')}}" class="btn btn-secondary" >Back</a>
 @endsection
