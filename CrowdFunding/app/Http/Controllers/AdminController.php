@@ -36,16 +36,19 @@ class AdminController extends Controller
             $request,
             [   
                 'name'=>'required|max:20|',
-                'phone'=>'required',
-                'email'=>'required',
-                'password'=>'required'
+                'phone'=>'required|numeric',
+                'email'=>'required|email',
+                'password'=>'required|min:4',
+                'type'=>'required'
             ],
             [
                 
                 'name.required'=>'Please put your name',
                 'phone.required'=>'Please put your phone number',
                 'email.required'=>'Please put your email address',
-                'password.required'=>'Please put your password'
+                'password.required'=>'Please put your password',
+                'phone.numeric'=>'Phone number must be numeric',
+                'password.min'=>'Password must be atleast 6 character',
                 
             ]
         );
@@ -75,6 +78,26 @@ class AdminController extends Controller
         return view('pages.admin.edituser')->with('info',$info);
     }
     public function updateuser(Request $request){
+        $this->validate(
+            $request,
+            [   
+                'name'=>'required|max:20|',
+                'phone'=>'required|numeric',
+                'email'=>'required|email',
+                'password'=>'required|min:4',
+                'type'=>'required'
+            ],
+            [
+                
+                'name.required'=>'Please put your name',
+                'phone.required'=>'Please put your phone number',
+                'email.required'=>'Please put your email address',
+                'password.required'=>'Please put your password',
+                'phone.numeric'=>'Phone number must be numeric',
+                'password.min'=>'Password must be atleast 6 character',
+                
+            ]
+        );
         $var = userinfos::where('id', $request->id)->first();
         $var->name= $request->name;
         $var->phone = $request->phone;

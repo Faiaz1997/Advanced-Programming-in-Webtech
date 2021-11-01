@@ -7,7 +7,7 @@
         <div class="col-md-4 form-group">
             <span>Status</span>
             <select name="status" id="status" class="form-control">
-										<option value="{{$status->p_status}}">Processing</option>
+										<option value="{{$status->p_status}}">{{$status->p_status}}</option>
 										<option value="approved">approved</option>
 										<option value="rejected">rejected</option>
             </select>

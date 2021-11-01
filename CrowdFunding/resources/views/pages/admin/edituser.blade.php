@@ -14,6 +14,9 @@
         <div class="col-md-4 form-group">
             <span>Phone</span>
             <input type="integer" name="phone" value="{{$info->phone}}" class="form-control">
+            @error('phone')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
         <div class="col-md-4 form-group">
             <span>User Type</span>
@@ -30,13 +33,16 @@
         <div class="col-md-4 form-group">
             <span>Password</span>
             <input type="password" name="password" value="{{$info->password}}" class="form-control">
-            @error('phone')
+            @error('password')
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="col-md-4 form-group">
             <span>Email</span>
             <input type="text" name="email" value="{{$info->email}}" class="form-control">
+            @error('email')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
         <input type="submit" class="btn btn-success" value="Update" >
         <a href="{{route('user.list')}}" class="btn btn-secondary" >Back</a>

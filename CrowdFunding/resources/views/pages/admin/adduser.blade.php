@@ -20,7 +20,7 @@
         <div class="col-md-4 form-group">
             <span>User Type</span>
             <select name="type" id="type" class="form-control">
-										<option value=""></option>
+										<option value="{{old('type')}}">{{old('type')}}</option>
 										<option value="Initiator">Initiator</option>
 										<option value="Moderator">Moderator</option>
 										<option value="Donor">Donor</option>

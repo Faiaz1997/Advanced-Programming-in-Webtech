@@ -18,13 +18,13 @@ class LoginController extends Controller
                   $this->validate(
                     $req,
                     [   
-                        'email'=>'required',
-                        'password'=>'required'
+                        'email'=>'required|email',
+                        'password'=>'required',
                     ],
                     [
                         
-                        'email.required'=>'Please put your email number',
-                        'password.required'=>'Please put your password'
+                        'email.required'=>'Please put your email address',
+                        'password.required'=>'Please put your password',
                         
                     ]
                 );
