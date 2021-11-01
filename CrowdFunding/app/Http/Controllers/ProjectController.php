@@ -28,8 +28,19 @@ class ProjectController extends Controller
         $alldonations = donationdetails::where('donor_id',$request->id)->get(); 
         return view('pages.admin.donations')->with('alldonations',$alldonations);
     }
+    public function status(Request $request){
+        //
+        $status = projects::where('p_id',$request->id)->first();
+        return view('pages.admin.projectstatus')->with('status',$status);
+    }
+    public function statusupdate(Request $request){
+        $var = projects::where('p_id', $request->id)->first();
+        $var->p_status = $request->status;
+        $var->save();
+        return redirect()->route('project.list');
+    }
     public function fund(Request $request){
-        $fund = donationdetails::where('project_id',$request->id)->get(); 
+        $fund = donationdetails::where('project_id',$request->id)->first(); 
         return view('pages.admin.fund')->with('fund',$fund);
     }
  
