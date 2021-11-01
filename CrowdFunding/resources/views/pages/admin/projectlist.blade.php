@@ -13,7 +13,7 @@
                 <td>{{$projectlist->p_name}}</td>
                 <td>{{$projectlist->p_description}}</td>
                 <td><a href="{{route('user.detail',['id'=>$projectlist->i_id])}}">{{$projectlist->i_id}}</a></td>
-                <td><a href="{{route('project.status',['id'=>$projectlist->p_id])}}">{{$projectlist->p_status}}</a></td>
+                <td><a href="/admin/ProjectStatus/{{$projectlist->p_id}}}"><button class="btn btn-info" style="text-decoration: none">{{$projectlist->p_status}}</button></a></td>
                 <td><a href="{{route('donor.list',['id'=>$projectlist->p_id])}}"><button type="button" class="btn btn-primary" >Donor List</button></a></td>
                 <td><a href="{{route('total.fund',['id'=>$projectlist->p_id])}}"><button type="button" class="btn btn-primary" >Fund</button></a></td>
             </tr>

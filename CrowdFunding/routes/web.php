@@ -45,8 +45,8 @@ Route::get('/admin/Donation Details',[ProjectController::class,'donationdetails'
 Route::get('/admin/Donations/{id}',[ProjectController::class,'alldonations'])->middleware('adminvalidation')->name('all.donations');
 Route::get('/admin/Fund/{id}',[ProjectController::class,'fund'])->middleware('adminvalidation')->name('total.fund');
 Route::get('/admin/Donor List/{id}',[ProjectController::class,'donorlist'])->middleware('adminvalidation')->name('donor.list');
-Route::get('/admin/Project Status/{id}',[ProjectController::class,'status'])->middleware('adminvalidation')->name('project.status');
-Route::post('/admin/Project Status',[ProjectController::class,'statusupdate'])->name('project.status');
+Route::get('/admin/ProjectStatus/{id}',[ProjectController::class,'changestatus'])->middleware('adminvalidation')->name('project.changestatus');
+Route::post('/admin/ProjectStatus/',[ProjectController::class,'status'])->name('project.changestatus');
 
 
 
