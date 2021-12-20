@@ -13,9 +13,9 @@
         </tr>
 
         <tr>
-            <td>{{$donation->id}}</td>
-            <td>{{$donation->ammount}}</td>
+            <td>{{$donation->p_id}}</td>
+            <td>{{$donation->amount}}</td>
         </tr>
     </table>
-    <a href="{{route('donor.list',['id'=>$donation->project_id])}}" class="btn btn-secondary" >Back</a>
+    <a href="{{route('donor.list',['id'=>$donation->p_id])}}" class="btn btn-secondary" >Back</a>
 @endsection

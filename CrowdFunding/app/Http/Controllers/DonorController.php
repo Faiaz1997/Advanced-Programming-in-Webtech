@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\projects;
 use App\Models\userinfos;
-use App\Models\donationdetails;
+
 
 class DonorController extends Controller
 {

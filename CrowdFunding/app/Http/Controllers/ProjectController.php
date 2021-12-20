@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\projects;
 use App\Models\userinfos;
-use App\Models\donationdetails;
+use App\Models\donations;
 
 class ProjectController extends Controller
 {
@@ -16,16 +16,17 @@ class ProjectController extends Controller
     }
     public function donationdetails(Request $request){
         $id = $request->id;
-        $donation = donationdetails::where('id',$id)->first();
-        return view('pages.admin.donationdetails')->with('donation',$donation);
+        $donation = donations::where('tran_id',$id)->first();
+        return view('pages.admin.donationdetails')->with('donation',$donation); 
+       
     }
     public function donorlist(Request $request){
         $id = $request->id;
-        $donors = donationdetails::where('project_id',$id)->get();
+        $donors = donations::where('p_id',$id)->get();
         return view('pages.admin.donorlist')->with('donors',$donors);
     }
     public function alldonations(Request $request){
-        $alldonations = donationdetails::where('donor_id',$request->id)->get(); 
+        $alldonations = donations::where('d_id',$request->id)->get(); 
         return view('pages.admin.donations')->with('alldonations',$alldonations);
     }
 
@@ -40,7 +41,7 @@ class ProjectController extends Controller
         return redirect()->route('project.list');
     }
     public function fund(Request $request){
-        $fund = donationdetails::where('project_id',$request->id)->get(); 
+        $fund = donations::where('p_id',$request->id)->get(); 
         return view('pages.admin.fund')->with('fund',$fund);
     }
  
